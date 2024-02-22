@@ -7,17 +7,22 @@ addBtn.addEventListener('click', function(e){
     const phone = document.getElementById('phone');
     const course = document.getElementById('course');
 
-    const container = document.getElementById('student-list');
     const tr = document.createElement('tr');
-
-    // addValue(td1, stID.value);
-    // addValue(td2, name.value);
-    // addValue(td3, phone.value);
-    // addValue(td4, course.value);
+    const container = document.getElementById('student-list');
     
+    if (stID.value == '' || name.value == '' || phone.value == '' || course.value == '') {
+        alert('Please enter the value');
+        return;
+    }
+
+    // addValue(stID.value);
+    // addValue(name.value);
+    // addValue(phone.value);
+    // addValue(course.value);
+
     const td1 = document.createElement('td');
     td1.innerText = stID.value;
-    tr.appendChild(td1);
+    tr.appendChild(td1);    
     
     const td2 = document.createElement('td');
     td2.innerText = name.value;
@@ -30,12 +35,19 @@ addBtn.addEventListener('click', function(e){
     const td4 = document.createElement('td');
     td4.innerText = course.value;
     tr.appendChild(td4);
-
     container.appendChild(tr);
+
+    stID.value = '';
+    name.value = '';
+    phone.value = '';
+    course.value = '';
 });
 
-// function addValue(id) {
-//     let id = document.createElement('td');
-//     id.innerText = value;
-//     tr.appendChild(id);
+// function addValue(value) {
+//     let td = document.createElement('td');
+//     td.innerText = value;
+//     const tr = document.createElement('tr');
+//     tr.appendChild(td);
+//     const container = document.getElementById('student-list');
+//     container.appendChild(tr);
 // }
